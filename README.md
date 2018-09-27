@@ -2,10 +2,10 @@
 This guide overviews how to do a full wipe of the GPD Pocket 2, followed by a dual boot of
 Arch Linux and Windows 10.
 
-- [Step 1: Use Arch USB to reformat drive](#step-1--use-arch-usb-to-reformat-drive)
-- [Step 2: Install Windows 10](#step-2--install-windows-10)
+- [Step 1: Use Arch USB to reformat drive](#step-1-use-arch-usb-to-reformat-drive)
+- [Step 2: Install Windows 10](#step-2-install-windows-10)
 
-# Step 1 - Use Arch USB to reformat drive
+# Step 1:  Use Arch USB to reformat drive
 
   1. Download standard Arch linux ISO
   2. Write ISO to USB drive
@@ -52,7 +52,7 @@ Arch Linux and Windows 10.
         `mkfs.vfat /dev/mmcblk0p1`
 
 
-# Step 2 - Install Windows 10
+# Step 2: Install Windows 10
 
   1. Create a Windows 10 install USB
   2. Boot Pocket 2 and tap `F12`
