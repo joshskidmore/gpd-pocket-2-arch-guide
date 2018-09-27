@@ -46,7 +46,7 @@ Arch Linux and Windows 10.
 
   6. Format the EFI partition to vfat
 
-      mkfs.vfat /dev/mmcblk0p1
+        mkfs.vfat /dev/mmcblk0p1
 
 
 # Step 2: Install Windows 10
@@ -123,7 +123,7 @@ Set your hostname (yeah, this is the most difficult part .. at least for me)
 
     echo MYHOSTNAME > /mnt/etc/hostname
 
-By now, you're probably sick of looking at tiny text, sideways. Let's fix the font size issue (on 
+By now, you're probably sick of looking at tiny text, sideways. Let's fix the font size issue (on
 reboot) by creating the file `/etc/vconsole.conf` and adding:
 
     FONT=latarcyrheb-sun32
@@ -139,7 +139,7 @@ With new HOOKS in-tow, regenerate your ramdisk and kernel using mkinitcpio:
 
 We'll be using `systemd-boot` as a better grub replacement. First, install systemd-booti using the
 following command. The command will create a new EFI entry named `Linux Boot Manager` which will sit
-alongside Windows' `Windows Boot Manager`. 
+alongside Windows' `Windows Boot Manager`.
 
     bootctl install
 
@@ -343,7 +343,7 @@ Create display config at `/etc/X11/xorg.conf.d/30-display.conf` with the followi
       Option        "Rotate"                 "right"
     EndSection
 
-Create touchscreen config at `/etc/X11/xorg.conf.d/99-touchscreen.conf` with the following: 
+Create touchscreen config at `/etc/X11/xorg.conf.d/99-touchscreen.conf` with the following:
 
     Section "InputClass"
       Identifier    "calibration"
@@ -361,7 +361,7 @@ Create touchscreen config at `/etc/X11/xorg.conf.d/99-touchscreen.conf` with the
     yay -S xfce4 xfce4-goodies
     # hit enter to install all the goodies
 
-## Create `~/.xinitrc` 
+## Create `~/.xinitrc`
 
     # Simple hack to allow mouse scrolling when right click button is held down
     xinput --set-prop pointer:"HAILUCK CO.,LTD USB KEYBOARD Mouse" "libinput Middle Emulation Enabled" 1
@@ -371,6 +371,6 @@ Create touchscreen config at `/etc/X11/xorg.conf.d/99-touchscreen.conf` with the
     # Start XFCE4
     (xset s 120) & exec startxfce4
 
-## Start X   
+## Start X
 
     startx
