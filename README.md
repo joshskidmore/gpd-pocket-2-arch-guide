@@ -4,6 +4,9 @@ Arch Linux and Windows 10.
 
 - [Step 1: Use Arch USB to reformat drive](#step-1-use-arch-usb-to-reformat-drive)
 - [Step 2: Install Windows 10](#step-2-install-windows-10)
+- [Step 3: Let's Install Arch](#step-3-lets-install-arch)
+    - [Configure LUKS + LVM2 partitions on `mmcblk0p2`](#configure-luks--lvm2-partitions-on-mmcblk0p2)
+
 
 # Step 1:  Use Arch USB to reformat drive
 
