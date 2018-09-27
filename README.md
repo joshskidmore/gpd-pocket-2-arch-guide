@@ -27,7 +27,7 @@ Arch Linux and Windows 10.
         - [Create Pocket 2 Xorg configs](#create-pocket-2-xorg-configs)
         - [Install Intel video drivers](#install-intel-video-drivers)
     - [XFCE4](#xfce4)
-    - [Create ~/.xinitrc](#xinitrc)
+    - [Create ~/.xinitrc](#create-xinitrc)
     - [Start X](#start-x)
 
 
