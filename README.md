@@ -2,10 +2,56 @@
 This guide overviews how to do a full wipe of the GPD Pocket 2, followed by a dual boot of
 Arch Linux and Windows 10.
 
+# Table of Contents
+
+- [What Works?](#what-works)
+- [Prerequisites](#prerequisites)
 - [Step 1: Use Arch USB to reformat drive](#step-1-use-arch-usb-to-reformat-drive)
 - [Step 2: Install Windows 10](#step-2-install-windows-10)
 - [Step 3: Let's Install Arch](#step-3-lets-install-arch)
     - [Configure LUKS + LVM2 partitions on `mmcblk0p2`](#configure-luks--lvm2-partitions-on-mmcblk0p2)
+    - [Wirelessly connect to the internet](#wirelessly-connect-to-the-internet)
+    - [Mount, pacstrap and prepare for arch-chroot](#mount-pacstrap-and-prepare-for-arch-chroot)
+    - [arch-chroot](#arch-chroot)
+- [Step 4: From Text to X](#step-4-from-text-to-x)
+    - [Add some repos to pacman](#add-some-repos-to-pacman)
+    - [Build and install yay package manager tool in order to install AUR packages](#build-and-install-yay-package-manager-tool-in-order-to-install-aur-packages)
+    - [Additional timezone setup](#additional-timezone-setup)
+    - [thermald](#thermald)
+    - [NetworkManager](#networkmanager)
+    - [Sound](#sound)
+    - [Bluetooth](#bluetooth)
+    - [TLP](#tlp)
+    - [Xorg](#xorg)
+        - [Install Xorg packages](#install-xorg-packages)
+        - [Create Pocket 2 Xorg configs](#create-pocket-2-xorg-configs)
+        - [Install Intel video drivers](#install-intel-video-drivers)
+    - [XFCE4](#xfce4)
+    - [.xinitrc](#xinitrc)
+
+
+# What works?
+
+- [x] Full 1080P display
+- [x] Touchscreen
+- [x] Mouse/optical/nub-replacement thingy
+- [x] Wifi (Intel AC 3165)
+- [x] Bluetooth
+- [x] Audio / speaker / microphone
+- [x] USB-C (Power Delivery)/PD charging (at 40W / 20V @ 2A)
+- [x] USB-C data / roleswitching
+- [x] Proper ACPI S3 Sleep/Wake
+- [?] Displayport/HDMI over USB-C (UNTESTED)
+- [?] Hibernation (UNTESTED)
+
+
+# Prerequisites
+
+  - [GPD Pocket 2](https://www.indiegogo.com/projects/gpd-pocket2-7-0-umpc-laptop-win-10-os)
+  - [Arch ISO](https://www.archlinux.org/download) written to USB stick
+  - [Microsoft Windows 10 installer](https://www.microsoft.com/en-us/software-download/windows10ISO) on USB stick
+  - ability to understand basic linux commands
+  - patience (and eyesight) to spend a good bit of time looking at small, sideways text
 
 
 # Step 1:  Use Arch USB to reformat drive
@@ -270,6 +316,11 @@ If you prefer another AUR/pacman tool, feel free to replace this step and `yay` 
     # Sync yay
     yay -Sy
 
+## Additional timezone setup
+`tzselect` is an interactive utility. Upon running the following command, choose your region and timezone.
+
+    sudo tzselect
+
 ## thermald
 `thermald` protects your Pocket 2 from overheating.
 
@@ -279,11 +330,6 @@ If you prefer another AUR/pacman tool, feel free to replace this step and `yay` 
     # Enable + start
     sudo systemctl enable thermald.service
     sudo systemctl start thermald.service
-
-## More timezone setup
-`tzselect` is an interactive utility. Upon running the following command, choose your region and timezone.
-
-    sudo tzselect
 
 ## NetworkManager
 
