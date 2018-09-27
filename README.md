@@ -44,10 +44,9 @@ Arch Linux and Windows 10.
         # w ↵ to write changes to disk
         # y ↵ to confirm
 
-  6. Format the EFI partition to vfat
-
-
-        mkfs.vfat /dev/mmcblk0p1
+  5. Format the EFI partition to vfat
+  
+        `mkfs.vfat /dev/mmcblk0p1`
 
 
 # Step 2: Install Windows 10
