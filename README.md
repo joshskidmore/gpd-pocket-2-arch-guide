@@ -6,8 +6,8 @@ Arch Linux and Windows 10.
 
   1. Download standard Arch linux ISO
   2. Write ISO to USB drive
-  3. Boot Pocket 2 and tap `DEL` key to enter BIOS
-  4. In BIOS, navigate to `Save & Exit` tab and under `Boot Override`, select the USB device containing Arch
+  3. Boot Pocket 2 and tap `F12`
+  4. In the options, select the USB device containing Arch
   5. Reformat `mmcblk0` disk
 
     Essentially, this is what we're going for:
@@ -45,15 +45,15 @@ Arch Linux and Windows 10.
         # y ↵ to confirm
 
   5. Format the EFI partition to vfat
-  
+
         `mkfs.vfat /dev/mmcblk0p1`
 
 
 # Step 2: Install Windows 10
 
   1. Create a Windows 10 install USB
-  2. Boot Pocket 2 and tap `DEL` key to enter BIOS
-  3. In BIOS, navigate to `Save & Exit` tab and under `Boot Override`, select the USB device containing the Windows 10 installer
+  2. Boot Pocket 2 and tap `F12`
+  3. In the options, select the USB device containing the Windows 10 installer
   4. Install Windows 10. The only important thing is that in the disk partitioner, let Windows use the unused space at the end of
   the drive. The Windows installer will automatically place its EFI files into the EFI partition (`mmcblk0p1`). The installer will
   warn you that it has to create additional partitions which is normal.
@@ -251,14 +251,15 @@ In `/etc/pacman.conf`, append these lines to the bottom
 ## Build and install `yay` package manager tool in order to install AUR packages
 If you prefer another AUR/pacman tool, feel free to replace this step and `yay` with that tool.
 
+    # Build yay package and install
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
 
-    # after install, remove the yay build folder
+    # After install, remove the yay build folder
     cd ..; rm -rf yay
 
-    ## Sync yay
+    # Sync yay
     yay -Sy
 
 ## thermald
@@ -272,6 +273,7 @@ If you prefer another AUR/pacman tool, feel free to replace this step and `yay` 
     sudo systemctl start thermald.service
 
 ## More timezone setup
+`tzselect` is an interactive utility. Upon running the following command, choose your region and timezone.
 
     sudo tzselect
 
@@ -284,9 +286,11 @@ If you prefer another AUR/pacman tool, feel free to replace this step and `yay` 
     sudo systemctl enable NetworkManager
     sudo systemctl start NetworkManager
 
-    # Connect to a wireless network using nmtui
+`nmtui` is a command-line utility which allows selection of a network. Note: Because `wifi-menu` was used,
+and a wifi network has already been selected, `nmtui` might fail or error. Upon next reboot,
+`nmtui` should be available (or just use the applet in Xorg).
+
     nmtui
-      # Activate a Connection -> (choose wi-fi connection) -> Activate -> Back -> Quit
 
 ## Sound
 
