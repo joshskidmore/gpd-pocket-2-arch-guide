@@ -41,8 +41,8 @@ Arch Linux and Windows 10.
 - [x] USB-C (Power Delivery)/PD charging (at 40W / 20V @ 2A)
 - [x] USB-C data / roleswitching
 - [x] Proper ACPI S3 Sleep/Wake
-- [?] Displayport/HDMI over USB-C (UNTESTED)
-- [?] Hibernation (UNTESTED)
+- [ ] Displayport/HDMI over USB-C (UNTESTED)
+- [ ] Hibernation (UNTESTED)
 
 
 # Prerequisites
