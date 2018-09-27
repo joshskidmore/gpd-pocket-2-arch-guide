@@ -46,6 +46,7 @@ Arch Linux and Windows 10.
 
   6. Format the EFI partition to vfat
 
+
         mkfs.vfat /dev/mmcblk0p1
 
 
